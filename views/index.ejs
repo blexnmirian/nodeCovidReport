@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid-19 Tracker</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <section class="text-center text-light bg-dark jumbotron jumbotron-fluid">
+      <h4>COVID-19 NIGERIAN REPORT</h4>
+    </section>
+
+    <main class="container">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card mb-3 text-white bg-dark">
+            <div class="card-header nigeria text-center"></div>
+              <div class="card-body row">
+                <div class="col-sm-3 text-center mt-3">
+                  <h6 class="card-title">Confirmed cases</h6>
+                  <p class="nigeria__confirmed_cases card-text btn btn-outline-primary"><%= data.totalConfirmedCases %> </p>
+                </div>
+
+                <div class="col-sm-3 text-center mt-3">
+                  <h6 class="card-title">Active cases</h6>
+                  <p class="nigeria__active_cases card-text btn btn-outline-warning"><%= data.totalActiveCases %></p>
+                </div>
+
+                <div class="col-sm-3 text-center mt-3">
+                  <h6 class="card-title">Discharged</h6>
+                  <p class="nigeria__discharge_cases card-text btn btn-outline-success"><%= data.discharged %></p>
+                </div>
+
+                <div class="col-sm-3 text-center mt-3">
+                  <h6 class="card-title">Death</h6>
+                  <p class="nigeria__death_cases card-text btn btn-outline-danger"><%= data.death %></p>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- search section -->
+        <section class="row">
+          <div class="input-group mb-3 md-form mt-0 col-sm-12">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                Search
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="By State Name" id="filter" name="filter" aria-label="state name">
+          </div>
+  
+        </section>
+
+     
+      <section class="row states mt-5">
+        <%  states.forEach((state)=>{%>
+          <div class="col-sm-6 states-collection">
+            <div class="card mb-3 text-white bg-info">
+              <div class="card-header  text-center"><%= state.state%></div>
+                <div class="card-body row text-center mt-3">
+                    <div class="col-sm-4 mt-3">
+                      <h6 class="card-title">Confirmed Cases</h6>
+                      <p class=" card-text btn btn-outline-primary"><%= state.confirmedCases%> </p>
+                    </div>
+      
+                    <div class="col-sm-4 mt-3">
+                      <h6 class="card-title">Discharged </h6>
+                      <p class="card-text btn btn-outline-dark"><%= state.discharged%></p>
+                    </div>
+      
+                    <div class="col-sm-4 mt-3">
+                      <h6 class="card-title">Death </h6>
+                      <p class=" card-text btn btn-outline-danger"><%= state.death%></p>
+                    </div>
+      
+                  </div>
+                </div>
+              </div> 
+
+              <% })%>
+
+      </section>
+    </main>
+
+    <footer class="text-center mt-5 mb-3">
+      💓 <a href="#" class="text-success">@Anyanwu Blessing</a>
+    </footer>
+   
+     
+  <script src="js/main.js"></script>
+  </body>
+ 
+  </html>
